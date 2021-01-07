@@ -23,6 +23,10 @@ module Vkponchik
       @token = token
     end
 
+    # Send POST request to API server
+    # @param method [String] see {API_METHODS} array
+    # @param params [Hash] parameters to pass in POST request
+    # @return [Hash]
     def request(method, **params)
       validate_request_options(method, **params)
 
@@ -30,7 +34,8 @@ module Vkponchik
       params[:group] = @group
       params[:token] = @token
 
-      re = Net::HTTP.post("#{API_BASE}/#{method}", params.to_json, API_HEADERS)
+      uri = URI("#{API_BASE}/#{method}")
+      re = Net::HTTP.post(uri, params.to_json, API_HEADERS)
 
       JSON.parse(re.body)
     rescue StandardError
