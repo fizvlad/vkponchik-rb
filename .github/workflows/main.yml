@@ -1,4 +1,4 @@
-name: Ruby
+name: Main
 
 on:
   push:
@@ -9,20 +9,34 @@ on:
       - master
 
 jobs:
-  build:
+  rspec:
     runs-on: ubuntu-latest
-    environment: test_environment
+    environment: test
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.7.2
-    - name: Run the default task
+    - name: Run the rspec task
       env:
         VKPONCHIK_GROUP: ${{ secrets.VKPONCHIK_GROUP }}
         VKPONCHIK_TOKEN: ${{ secrets.VKPONCHIK_TOKEN }}
       run: |
         gem install bundler -v 2.2.4
         bundle install
-        bundle exec rake
+        bundle exec rake spec
+  rubocop:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7.2
+    - name: Run the rubocop task
+      run: |
+        gem install bundler -v 2.2.4
+        bundle install
+        bundle exec rake rubocop
+

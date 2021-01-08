@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary       = 'API client for VK Ponchik donations service.'
   spec.homepage      = 'https://github.com/fizvlad/vkponchik-rb'
   spec.license       = 'MIT'
-  spec.required_ruby_version = Gem::Requirement.new('>= 2.7.2')
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.7.0')
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/fizvlad/vkponchik-rb'
@@ -25,10 +25,4 @@ Gem::Specification.new do |spec|
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
-
-  # Uncomment to register a new dependency of your gem
-  # spec.add_dependency "example-gem", "~> 1.0"
-
-  # For more information and examples about making a new gem, checkout our
-  # guide at: https://bundler.io/guides/creating_gem.html
 end

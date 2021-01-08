@@ -2,6 +2,7 @@
 
 require_relative 'vkponchik/version'
 require_relative 'vkponchik/client'
+require_relative 'vkponchik/response'
 
 # Vkponhik library namespace
 module Vkponchik
