@@ -15,7 +15,15 @@ RSpec.describe Vkponchik::Client do
     let(:method) { '' }
     let(:params) { {} }
 
-    context 'when getting all donations' do
+    context 'when gibberish' do
+      let(:method) { 'gibberish' }
+
+      it 'raises error' do
+        expect { result }.to raise_error(Vkponchik::Error)
+      end
+    end
+
+    context 'when donates/get' do
       let(:method) { 'donates/get' }
 
       it 'do not raise errors and return parsed JSON' do
