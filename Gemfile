@@ -11,6 +11,6 @@ gem 'rspec', '~> 3.0'
 
 gem 'rubocop', '~> 0.80'
 
-gem 'dotenv-rails'
+gem 'dotenv'
 
 gem 'simplecov', require: false
