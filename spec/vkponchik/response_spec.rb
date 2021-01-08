@@ -25,6 +25,20 @@ RSpec.describe Vkponchik::Response do
     end
   end
 
+  describe '#success?' do
+    subject(:result) { response.success? }
+
+    let(:data) { { 'success' => true } }
+
+    it { expect(result).to be(true) }
+
+    context 'when error' do
+      let(:data) { { 'success' => false } }
+
+      it { expect(result).to be(false) }
+    end
+  end
+
   describe '#error_full_message' do
     subject(:result) { response.error_full_message }
 

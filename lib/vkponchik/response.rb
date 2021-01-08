@@ -13,6 +13,11 @@ module Vkponchik
       !@hash['success']
     end
 
+    # @return [Boolean]
+    def success?
+      !error?
+    end
+
     # @return [String?]
     def error_full_message
       return unless error?
