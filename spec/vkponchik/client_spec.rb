@@ -26,7 +26,7 @@ RSpec.describe Vkponchik::Client do
     context 'when donates/get' do
       let(:method) { 'donates/get' }
 
-      it 'do not raise errors and return parsed JSON' do
+      it 'do not raise errors and return parsed JSON', :aggregate_failures do
         expect { result }.not_to raise_error
         expect(result).to be_a(Hash)
       end
