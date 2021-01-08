@@ -17,7 +17,7 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.7.2
+        ruby-version: 2.7
     - name: Run the default task
       env:
         VKPONCHIK_GROUP: ${{ secrets.VKPONCHIK_GROUP }}
