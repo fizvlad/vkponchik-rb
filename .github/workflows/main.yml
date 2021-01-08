@@ -1,10 +1,17 @@
 name: Ruby
 
-on: [push,pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: test_environment
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
@@ -12,6 +19,9 @@ jobs:
       with:
         ruby-version: 2.7.2
     - name: Run the default task
+      env:
+        VKPONCHIK_GROUP: ${{ secrets.VKPONCHIK_GROUP }}
+        VKPONCHIK_TOKEN: ${{ secrets.VKPONCHIK_TOKEN }}
       run: |
         gem install bundler -v 2.2.4
         bundle install

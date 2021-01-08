@@ -5,7 +5,8 @@ RSpec.describe Vkponchik do
     expect(Vkponchik::VERSION).not_to be nil
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+  it 'has test group ID and token defined', :aggregate_failures do
+    expect(vkponchik_group).to be_a(Integer)
+    expect(vkponchik_token).to be_a(String)
   end
 end
