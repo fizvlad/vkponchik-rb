@@ -28,7 +28,17 @@ RSpec.describe Vkponchik::Client do
 
       it 'do not raise errors and return parsed JSON', :aggregate_failures do
         expect { result }.not_to raise_error
-        expect(result).to be_a(Hash)
+        expect(result).to be_a(Vkponchik::Response)
+      end
+    end
+
+    context 'when client with wrong credentials' do
+      let(:client) { described_class.new(1, 'test') }
+      let(:method) { 'donates/get' }
+
+      it 'returnes response with error', :aggregate_failures do
+        expect { result }.not_to raise_error
+        expect(result).to be_a(Vkponchik::Response)
       end
     end
   end

@@ -37,7 +37,7 @@ module Vkponchik
       uri = URI("#{API_BASE}/#{method}")
       re = Net::HTTP.post(uri, params.to_json, API_HEADERS)
 
-      JSON.parse(re.body)
+      Response.new(JSON.parse(re.body))
     rescue StandardError
       raise Vkponchik::Error, 'Request failure'
     end
