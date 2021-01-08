@@ -18,7 +18,7 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.7.2
-    - name: Run the default task
+    - name: Run the rspec task
       env:
         VKPONCHIK_GROUP: ${{ secrets.VKPONCHIK_GROUP }}
         VKPONCHIK_TOKEN: ${{ secrets.VKPONCHIK_TOKEN }}
