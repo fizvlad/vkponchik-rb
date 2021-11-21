@@ -7,13 +7,8 @@ module Vkponchik
   # API client class
   class Client
     API_VERSION = 1
-    API_BASE = 'https://api.vkdonuts.ru'
+    API_BASE = 'https://api.keksik.io'
     API_HEADERS = { 'Content-Type' => 'application/json' }.freeze
-    API_METHODS = [
-      'donates/get', 'donates/change-status', 'donates/answer', 'donates/change-reward-status',
-      'campaigns/get', 'campaigns/get-active', 'campaigns/get-rewards', 'campaigns/change',
-      'campaigns/change-reward', 'payments/get', 'payments/create', 'balance'
-    ].freeze
 
     # Initialize new client
     # @param group [Integer] group ID
@@ -24,12 +19,10 @@ module Vkponchik
     end
 
     # Send POST request to API server
-    # @param method [String] see {API_METHODS} array
+    # @param method [String] method name
     # @param params [Hash] parameters to pass in POST request
     # @return [Hash]
     def request(method, **params)
-      validate_request_options(method, **params)
-
       params[:v] = API_VERSION
       params[:group] = @group
       params[:token] = @token
@@ -40,12 +33,6 @@ module Vkponchik
       Response.new(JSON.parse(re.body))
     rescue StandardError
       raise Vkponchik::Error, 'Request failure'
-    end
-
-    private
-
-    def validate_request_options(method, **_params)
-      raise Vkponchik::Error, 'Invalid request method' unless API_METHODS.include?(method)
     end
   end
 end
