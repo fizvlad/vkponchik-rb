@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    vkponchik (1.0.0)
+    vkponchik (1.1.0)
 
 GEM
   remote: https://rubygems.org/

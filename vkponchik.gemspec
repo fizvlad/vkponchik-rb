@@ -8,14 +8,17 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Vladislav Kuznecov']
   spec.email         = ['fizvlad@mail.ru']
 
-  spec.summary       = 'API client for VK Ponchik donations service.'
+  spec.summary       = 'API client for VK Ponchik (Keksik) donations service.'
   spec.homepage      = 'https://github.com/fizvlad/vkponchik-rb'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.7.0')
 
-  spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/fizvlad/vkponchik-rb'
-  spec.metadata['changelog_uri'] = 'https://github.com/fizvlad/vkponchik-rb/releases'
+  spec.metadata = {
+    'rubygems_mfa_required' => 'true',
+    'homepage_uri' => spec.homepage,
+    'source_code_uri' => 'https://github.com/fizvlad/vkponchik-rb',
+    'changelog_uri' => 'https://github.com/fizvlad/vkponchik-rb/releases'
+  }
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
