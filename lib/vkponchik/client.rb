@@ -19,12 +19,10 @@ module Vkponchik
     end
 
     # Send POST request to API server
-    # @param method [String] see {API_METHODS} array
+    # @param method [String] method name
     # @param params [Hash] parameters to pass in POST request
     # @return [Hash]
     def request(method, **params)
-      validate_request_options(method, **params)
-
       params[:v] = API_VERSION
       params[:group] = @group
       params[:token] = @token
@@ -35,12 +33,6 @@ module Vkponchik
       Response.new(JSON.parse(re.body))
     rescue StandardError
       raise Vkponchik::Error, 'Request failure'
-    end
-
-    private
-
-    def validate_request_options(method, **_params)
-      raise Vkponchik::Error, 'Invalid request method' unless API_METHODS.include?(method)
     end
   end
 end
