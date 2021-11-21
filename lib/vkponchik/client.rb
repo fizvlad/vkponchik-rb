@@ -7,13 +7,8 @@ module Vkponchik
   # API client class
   class Client
     API_VERSION = 1
-    API_BASE = 'https://api.vkdonuts.ru'
+    API_BASE = 'https://api.keksik.io'
     API_HEADERS = { 'Content-Type' => 'application/json' }.freeze
-    API_METHODS = [
-      'donates/get', 'donates/change-status', 'donates/answer', 'donates/change-reward-status',
-      'campaigns/get', 'campaigns/get-active', 'campaigns/get-rewards', 'campaigns/change',
-      'campaigns/change-reward', 'payments/get', 'payments/create', 'balance'
-    ].freeze
 
     # Initialize new client
     # @param group [Integer] group ID
